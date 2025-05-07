@@ -5,6 +5,8 @@ import { DirectionalLight } from "./components/DirectionalLight";
 import { player } from "./components/Player";
 import { map, initializeMap } from "./components/Map";
 import { animateVehicles } from "./animateVehicles";
+import "./collectUserInput";
+import { animatePlayer } from "./animatePlayer";
 
 import "./style.css";
 
@@ -37,6 +39,7 @@ renderer.setAnimationLoop(animate);
 
 function animate() {
   animateVehicles();
+  animatePlayer()
 
   renderer.render(scene, camera);
 }
