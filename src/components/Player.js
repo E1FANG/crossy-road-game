@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { endsUpInValidPosition } from "../utilities/endsUpInValidPosition";
 
 export const player = Player();
 
@@ -16,7 +17,7 @@ function Player() {
 
   body.castShadow = true;
   body.receiveShadow = true;
-  
+
   player.add(body);
 
   const cap = new THREE.Mesh(
@@ -42,6 +43,16 @@ export const position = {
 export const movesQueue = [];
 
 export function queueMove(direction) {
+  const isValidMove = endsUpInValidPosition(
+    {
+      rowIndex: position.currentRow,
+      tileIndex: position.currentTile,
+    },
+    [...movesQueue, direction]
+  );
+
+  if (!isValidMove) return;
+
   movesQueue.push(direction);
 }
 
