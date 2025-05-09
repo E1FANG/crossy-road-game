@@ -25,7 +25,7 @@ dirLight.position.set(-100, -100, 200);
 scene.add(dirLight);
 
 const camera = Camera();
-scene.add(camera);
+player.add(camera);
 
 initializeGame();
 
