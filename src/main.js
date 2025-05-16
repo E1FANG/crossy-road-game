@@ -21,8 +21,9 @@ const ambientLight = new THREE.AmbientLight();
 scene.add(ambientLight);
 
 const dirLight = DirectionalLight();
-dirLight.position.set(-100, -100, 200);
-scene.add(dirLight);
+// dirLight.position.set(-100, -100, 200);
+dirLight.target = player;
+player.add(dirLight);
 
 const camera = Camera();
 player.add(camera);
